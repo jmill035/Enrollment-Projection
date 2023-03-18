@@ -14,5 +14,5 @@ public class SemesterTest {
     assertTrue(semester.supplyDirectories(pastDirectory, currentDirectory));
 
  }
- 
+  
 }
