@@ -1,6 +1,6 @@
 package edu.odu.cs.cs350.pne;
 
-public class SemesterReport {
+public class SummaryReport {
 
     char marker;        // represents the projected enrollment 
 

@@ -7,7 +7,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
 
-public class SemesterReportTest {
+public class SummaryReportTest {
     
     @Test
     public void projectEnrollmentTest() {
