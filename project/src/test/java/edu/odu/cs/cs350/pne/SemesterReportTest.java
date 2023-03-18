@@ -27,7 +27,10 @@ public class SemesterReportTest {
     public void toStringTest() {
         SemesterReport semester = new SemesterReport();
 
-        assertThat(semester.toString(), contains("Course"));
+        assertTrue(semester.toString().contains("Course"));
+        assertTrue(semester.toString().contains("Enrollment"));
+        assertTrue(semester.toString().contains("Projected"));
+        assertTrue(semester.toString().contains("Cap"));
 
     }
 }
