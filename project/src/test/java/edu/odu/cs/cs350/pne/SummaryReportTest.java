@@ -11,7 +11,7 @@ public class SummaryReportTest {
     
     @Test
     public void projectEnrollmentTest() {
-        SemesterReport semester = new SemesterReport();
+        SummaryReport semester = new SummaryReport();
         
         semester.marker = semester.projectedEnrollment(88, 75);
         assertThat(semester.marker, is ('*'));
@@ -28,7 +28,7 @@ public class SummaryReportTest {
 
     @Test
     public void toStringTest() {
-        SemesterReport semester = new SemesterReport();
+        SummaryReport semester = new SummaryReport();
 
         assertTrue(semester.toString().contains("Course"));
         assertTrue(semester.toString().contains("Enrollment"));
