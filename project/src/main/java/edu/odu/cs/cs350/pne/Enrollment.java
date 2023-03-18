@@ -6,10 +6,29 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Scanner;
 
-public class Enrollement {
+/*
+ * 1) input args
+ * 2) IOReader process args input
+ * 3) ...
+ * 
+ * x) Summary Report with header and output
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ */
+
+
+
+public class Enrollment {
 
     /**
-     * Main program for Enrollement
+     * Main program for Enrollment
      *
      * @param args command line (CLI) parameters
      * @throws IOException when file named in command line cannot be read
@@ -48,3 +67,6 @@ public class Enrollement {
     }
   
   }
+
+
+
