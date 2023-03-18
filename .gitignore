@@ -1,0 +1,45 @@
+# Compiled class file
+**/*.class
+**/.gradle/
+
+.project
+.classpath
+.vscode/
+.class
+.jar
+bin/
+build/
+
+
+# FROM: https://www.jamescoyle.net/how-to/supporting-scripts/3027-gitignore-file-for-eclipse-projects
+# Java related
+target/**
+*.jar
+*.war
+*.ear
+*.class
+
+# eclipse specific
+*.pydevproject
+.project
+.metadata
+bin/**
+tmp/**
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
+
+
+# External tool builders
+.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+.externalToolBuilders/
+*.launch
+*.code-workspace
