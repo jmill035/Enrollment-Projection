@@ -14,4 +14,12 @@ public class SemesterReport {
         }
 
     }
+
+    public String toString() {
+
+        String header = String.format("%-1s %-10s %-15s %-15s %-15s", 
+                        " ", "Course", "Enrollment", "Projected", "Cap");
+        
+        return header;
+    }
 }
