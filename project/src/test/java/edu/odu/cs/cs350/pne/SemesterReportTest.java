@@ -10,15 +10,18 @@ import static org.hamcrest.Matchers.*;
 public class SemesterReportTest {
     
     @Test
-    public void hearderOneTest() {
+    public void projectEnrollmentTest() {
         SemesterReport semester = new SemesterReport();
         
         semester.marker = semester.projectedEnrollment(88, 75);
         assertThat(semester.marker, is ('*'));
+        assertThat(semester.marker, not(is(' ')));
+        assertThat(semester.marker, not(is('a')));
 
         semester.marker = semester.projectedEnrollment(33, 50);
         assertThat(semester.marker, is (' '));
-    
+        assertThat(semester.marker, not(is('*')));
+        assertThat(semester.marker, not(is('a')));
     }
 
 
@@ -27,7 +30,10 @@ public class SemesterReportTest {
     public void toStringTest() {
         SemesterReport semester = new SemesterReport();
 
-        assertThat(semester.toString(), contains("Course"));
-
+        assertTrue(semester.toString().contains("Course"));
+        assertTrue(semester.toString().contains("Enrollment"));
+        assertTrue(semester.toString().contains("Projected"));
+        assertTrue(semester.toString().contains("Cap"));
+        assertFalse(semester.toString().contains("Class"));
     }
 }
