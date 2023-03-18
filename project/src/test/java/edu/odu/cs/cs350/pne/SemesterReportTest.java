@@ -34,6 +34,7 @@ public class SemesterReportTest {
         assertTrue(semester.toString().contains("Enrollment"));
         assertTrue(semester.toString().contains("Projected"));
         assertTrue(semester.toString().contains("Cap"));
+
         assertFalse(semester.toString().contains("Class"));
     }
 }
