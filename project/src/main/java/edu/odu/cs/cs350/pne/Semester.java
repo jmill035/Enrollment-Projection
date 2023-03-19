@@ -53,21 +53,12 @@ public void supplyCutoff (String args[]) throws Exception
     ClassLoader cl = getClass().getClassLoader();
     File file1 = new File (cl.getResource("./project/src/test/java/edu/odu/cs/cs350/pne/data/summary/History/202230/dates.txt").getFile());
 
-    //read the first line of dates.txt as pre-reg date and store it in arrayList
-    // BufferedReader reader = new BufferedReader(new FileReader("dates.txt"));
-    // ArrayList<String> listOfLines = new ArrayList<>();
-    // String dateLine = reader.readLine();
-    // while (dateLine != null)
-    // {
-    //     listOfLines.add(dateLine);
-    //     dateLine = reader.readLine();
-    // }
-    // reader.close();
-
+    //read the first line of dates.txt as preReg date and second line as addDeadline date
+    BufferedReader reader = new BufferedReader(new FileReader("dates.txt"));
     
-
-    //read the second line of dates.txt as add deadline
+    //store first date into preReg and store second date into addDeadline
+    String preReg = reader.readLine();
+    String addDeadline = reader.readLine();
     
-    //retrieve pre-reg date and add deadline date from arrayList
-    
+    reader.close();
 }
