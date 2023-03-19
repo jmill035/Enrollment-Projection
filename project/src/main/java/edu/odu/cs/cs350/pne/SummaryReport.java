@@ -38,14 +38,14 @@ public class SummaryReport {
     }
 
 
-    public static double getEnrollmentPercentage (Enrollement begin, Enrollement end ) {
+    public static double getEnrollmentPercentage (Enrollment begin, Enrollment end ) {
 
-        Enrollement start = Enrollement.now();
+        Enrollment start = Enrollment.now();
 
         //Registration end_Date = EndDate.now();
 
         int EnrollmentPercentage = end.getRegistrationdate() - start.getRegistrationDate();
-        //     int EnrollmentPercentage = end.Enrollement/...date() - start.Enrollement/..date();
+        //     int EnrollmentPercentage = end.Enrollment/...date() - start.Enrollment/..date();
 
 
         double percentage =((double) EnrollmentPercentage) * 100;
@@ -57,7 +57,4 @@ public class SummaryReport {
     }
 
 }
-
-
--------------
 

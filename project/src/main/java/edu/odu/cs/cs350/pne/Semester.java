@@ -10,6 +10,12 @@ import java.io.IOException;
 
 public class Semester {
 
+    private Scanner scanner;
+
+    public Semester() {
+        scanner = new Scanner(System.in);
+    }
+
 public void supplyDirectories (String pastDirectory, String currentDirectory) {
 
     //Get directory paths from user Input in CLI
