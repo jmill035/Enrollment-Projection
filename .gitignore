@@ -10,6 +10,8 @@
 bin/
 build/
 
+.gradle/
+
 
 # FROM: https://www.jamescoyle.net/how-to/supporting-scripts/3027-gitignore-file-for-eclipse-projects
 # Java related
