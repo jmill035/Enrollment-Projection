@@ -1,8 +1,8 @@
-<<<<<<< HEAD
+
 package edu.odu.cs.cs350.pne;
 
 import java.util.Scanner;
-=======
+
 package edu.odu.cs.cs350.pne; 
 
 import java.io.BufferedReader;
@@ -12,7 +12,7 @@ import java.util.Scanner;
 import java.io.FileNotFoundException; 
 import java.io.FileReader; 
 import java.io.IOException;
->>>>>>> d0d2a2c1fd3e53733db406924ebee7c2dbc8f2aa
+
 
 public class Semester {
 
@@ -34,11 +34,9 @@ public void supplyDirectories (String pastDirectory, String currentDirectory) {
     System.out.println(pastDirectory);
     System.out.println(currentDirectory);
 
-<<<<<<< HEAD
+
 }
 
-
-=======
     }
 
 /*
@@ -72,7 +70,4 @@ public void supplyCutoff (String args[]) throws Exception
     
     //retrieve pre-reg date and add deadline date from arrayList
     
-}
-
->>>>>>> d0d2a2c1fd3e53733db406924ebee7c2dbc8f2aa
 }
