@@ -12,8 +12,8 @@ repositories {
     mavenCentral()
 }
 
-application { 
-    mainClass = 'edu.odu.cs.cs350.pne.Main'  
+application {
+    mainClass = 'odu.edu.cs.cs350.pne.Main'
 }
 
 dependencies {
@@ -21,6 +21,8 @@ dependencies {
     testImplementation 'org.hamcrest:hamcrest-library:2.2'
     testImplementation 'com.opencsv:opencsv:5.7.1'
     testImplementation 'org.apache.poi:poi-ooxml-schemas:4.1.2'
+    testImplementation 'org.apache.poi:poi-ooxml:4.1.2'
+
 }
 
 test {
@@ -28,3 +30,28 @@ test {
     useJUnitPlatform()
 }
 
+jar {
+    manifest {
+        attributes 'Implementation-Title' : 'Enrollement Projection',
+            'Implementaion-Version' : '1.0',
+            'Main-Class' : 'edu.odu.cs.cs350.pne.Main'  
+    }
+    from { configurations.runtimeClasspath.collect {
+        it.isDirectory() ? it : zipTree(it) }
+    }
+
+}
+
+
+task generate (dependsOn: 'jar') {
+    // inputs.file('build/libs/project.jar')
+   //  inputs.file('src/test/java/edu/odu/cs/cs350/pne/data/summary/History/2022-12-20.csv')
+   // inputs.file('src/test/java/edu/odu/cs/cs350/pne/data/summary/History/202230/dates.txt')
+   //  outputs.file('build/workbook1.xlsx')
+    doLast {
+        exec {
+            // needs more commands
+            commandLine = ['java', '-cp', 'build/libs/project.jar', 'edu.odu.cs.cs350.pne.Main']
+        }
+    }
+}
