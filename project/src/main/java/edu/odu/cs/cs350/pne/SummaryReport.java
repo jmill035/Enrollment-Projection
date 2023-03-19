@@ -1,4 +1,5 @@
 package edu.odu.cs.cs350.pne;
+import java.util.Scanner;
 
 public class SummaryReport {
 
@@ -35,4 +36,25 @@ public class SummaryReport {
 
         return header;
     }
+
+
+    public static double getEnrollmentPercentage (Enrollment begin, Enrollment end ) {
+
+        Enrollment start = Enrollment.now();
+
+        //Registration end_Date = EndDate.now();
+
+        int EnrollmentPercentage = end.getRegistrationdate() - start.getRegistrationDate();
+        //     int EnrollmentPercentage = end.Enrollment/...date() - start.Enrollment/..date();
+
+
+        double percentage =((double) EnrollmentPercentage) * 100;
+
+        //this may be where it belongs @Kofi, I moved it accidentally
+        System.out.println("Percentage of enrollment period that has passed:" + percentage + "%");
+
+        return percentage;
+    }
+
 }
+
