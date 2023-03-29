@@ -1,9 +1,7 @@
-
 package edu.odu.cs.cs350.pne;
 
 import java.util.Scanner;
-
-package edu.odu.cs.cs350.pne; 
+ 
 
 import java.io.BufferedReader;
 import java.io.File;
