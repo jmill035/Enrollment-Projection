@@ -34,10 +34,7 @@ public void supplyDirectories (String pastDirectory, String currentDirectory) {
     System.out.println(pastDirectory);
     System.out.println(currentDirectory);
 
-
 }
-
-    }
 
 /*
 to supply a cutoff date beyond which snapshot date is ignored
@@ -48,7 +45,7 @@ this function will ignore any dates BEFORE the pre-reg date and any AFTER the ad
 
 //2022-10-31....2023-05-17
 public void supplyCutoff (String args[]) throws Exception
-{
+    {
     //grabs the dates.txt file from sample data
     ClassLoader cl = getClass().getClassLoader();
     File file1 = new File (cl.getResource("./project/src/test/java/edu/odu/cs/cs350/pne/data/summary/History/202230/dates.txt").getFile());
@@ -61,4 +58,5 @@ public void supplyCutoff (String args[]) throws Exception
     String addDeadline = reader.readLine();
     
     reader.close();
+    }
 }
