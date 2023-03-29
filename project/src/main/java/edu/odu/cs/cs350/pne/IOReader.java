@@ -1,8 +1,12 @@
 package edu.odu.cs.cs350.pne;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 public class IOReader {
-    public static void ReadExcelSheets(String[] args) {
-        String filePath = "project/src/test/java/edu/odu/cs/cs350/pne/data/summary/History/202230/";
+    public static void ReadExcelSheets() {
+        String[] filepaths = {"project/src/test/java/edu/odu/cs/cs350/pne/data/summary/History/202230/*.csv"};
         for (String filepath : filepaths){
             try (BufferedReader br = new BufferedReader(new FileReader(filepath))) {
                 String line;
@@ -17,7 +21,7 @@ public class IOReader {
                 e.printStackTrace();
             }
         }
-}
+    }
 }
 
 /*
