@@ -1,45 +1,45 @@
 package edu.odu.cs.cs350.pne;
 
-import org.hamcrest.core.IsEqual;
-
-import static org.hamcrest.MatcherAssert.assertThat; 
+import org.junit.jupiter.api.Test;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
 public class CourseTest {
 
     @Test 
-    public void WithoutXGroupConstructorTest() {
-        Course course = new Course("32321", "CS", "112", 25, 2, "A1", 25, 2);
+    public void ConstructorTest() {
+        Course course = new Course("CS", "115");
 
-        assertThat(course.getCRN(), is("32321"));
         assertThat(course.getSubj(), is("CS"));
-        assertThat(course.getCrse(), is("112"));
-        assertThat(course.getXlstCap(), is(25));
-        assertThat(course.getEnrollment(), is(2));
-        assertThat(course.getLink(), is("A1"));
-        assertThat(course.getXlstGroup(), is(""));
-        assertThat(course.getOverallCap(), is(25));
-        assertThat(course.getOverallEnr(), is(2));
+        assertThat(course.getCrse(), is("115"));
 
-        assertThat(course.getCourseName(), is("CS112"));
+        assertThat(course.getCourseName(), is("CS115"));
     }
 
-    @Test 
-    public void XLSTGroupConstructorTest() {
-        Course course = new Course("31559", "CS", "120G", 30, 1, "B1", "SS167", 30, 1);
+     @Test
+     public void addSectionTest() {
+        Course course = new Course("CS", "115");
 
-        assertThat(course.getCRN(), is("31559"));
-        assertThat(course.getSubj(), is("CS"));
-        assertThat(course.getCrse(), is("120G"));
-        assertThat(course.getXlstCap(), is(30));
-        assertThat(course.getEnrollment(), is(1));
-        assertThat(course.getLink(), is("B1"));
-        assertThat(course.getXlstGroup(), is("SS167"));
-        assertThat(course.getOverallCap(), is(30));
-        assertThat(course.getOverallEnr(), is(1));
+        Section section1 = new Section("29869", 30, 0);
+        Section section2 = new Section("30065", 15, 0,"P3");
 
-        assertThat(course.getCourseName(), is("CS120G"));
+        Offering offer = new Offering("SC450", 30, 0);
 
-    }
-     
+        assertThat(course.getSection("29869"), is(nullValue()));
+        
+        course.addSection(section1);
+        assertThat(course.getSection("29869"), is(section1));
+        
+
+        assertThat(course.getSection("30065"), is(nullValue()));
+        
+        section2.addOffering(offer);
+        course.addSection(section2);
+        assertThat(course.getSection("30065"), is(section2));
+        assertThat(course.getSection("30065").getOffering(), is(offer));
+
+
+     }
+
+    
 }
