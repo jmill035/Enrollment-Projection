@@ -1,6 +1,5 @@
 package edu.odu.cs.cs350.pne;
 
-import java.util.List;
 
 public class Offering {
     private String xlstGroup;
@@ -35,10 +34,5 @@ public class Offering {
 
     public int getOverallEnr() {
         return overallEnr;
-    }
-
-    private List<Offering> offerings;
-    public Offering(List<Offering> offerings){
-        this.offerings = offerings;
     }
 }
