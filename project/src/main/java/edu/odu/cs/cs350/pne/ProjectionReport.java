@@ -9,4 +9,13 @@ public class ProjectionReport {
     public ProjectionReport(List<Offering> offerings) {
         this.offerings = offerings;
     }
+    
+    public int calculateOverallCap(){
+        int overallCap= 0 ;
+        for ( Offering offering : offerings) {
+         overallCap += offering.getOverallCap();   
+        }
+        return overallCap;
+    }
+
 }
