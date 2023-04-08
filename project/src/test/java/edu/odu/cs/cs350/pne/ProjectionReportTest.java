@@ -1,6 +1,8 @@
 package edu.odu.cs.cs350.pne;
 
 import org.junit.jupiter.api.Test;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,8 +26,9 @@ public void calculateOverallCapTest() {
 ProjectionReport report = new ProjectionReport(offerings);
 int overallCap = report.calculateOverallCap();
 
-assertThat(overallCap, is (75));
+assertThat(overallCap, is(75));
 
 }
+
 
 }
