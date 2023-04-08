@@ -84,8 +84,8 @@ public void supplyCutoff (String args[]) throws Exception
         }
         for (String fileName : csvFiles)
         {
-            //store all .csv files, and then ignore dates outside of prereg and addDeadline
-            List <LocalDate> dates = preRegDate.datesUntil(addDeadlineDate).collect(Collectors.toList());
+            //look at all .csv files and then ignore dates outside of prereg and addDeadline
+            List <LocalDate> datesBetween = preRegDate.datesUntil(addDeadlineDate).collect(Collectors.toList());
         }
     }
 }
