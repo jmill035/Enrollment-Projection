@@ -4,11 +4,16 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 import java.io.BufferedReader;
 import java.io.File;
+//import java.util.Scanner;
+//import java.io.FileNotFoundException; 
+import java.io.FileReader; 
+//import java.io.IOException;
 import java.io.FileReader;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.*;
+
 
 
 
@@ -79,8 +84,8 @@ public void supplyCutoff (String args[]) throws Exception
         }
         for (String fileName : csvFiles)
         {
-            //store all .csv files, and then ignore dates outside of prereg and addDeadline
-            List <LocalDate> dates = preRegDate.datesUntil(addDeadlineDate).collect(Collectors.toList());
+            //look at all .csv files and then ignore dates outside of prereg and addDeadline
+            List <LocalDate> datesBetween = preRegDate.datesUntil(addDeadlineDate).collect(Collectors.toList());
         }
     }
 }
