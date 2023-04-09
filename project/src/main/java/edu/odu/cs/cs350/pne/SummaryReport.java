@@ -52,11 +52,10 @@ public class SummaryReport {
         return header;
     }
 
-    /* 
 
-    public static double getEnrollmentPercentage (Enrollement begin, Enrollement end ) {
+    public static double getEnrollmentPercentage (Enrollment begin, Enrollment end ) {
 
-        Enrollement start = Enrollement.now();
+        Enrollment start = Enrollment.now();
 
         //Registration end_Date = EndDate.now();
 
@@ -71,7 +70,6 @@ public class SummaryReport {
 
         return percentage;
     }
-*/
 
 }
 
