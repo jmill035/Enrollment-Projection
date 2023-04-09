@@ -5,9 +5,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
-
 public class IOReader {
-    public static void main(String[] args) {
+    public static void beginIOread (String[] args) {
         String directoryPath = "/home/cs_jmill035/Enrollment-Projection/project/src/test/java/edu/odu/cs/cs350/pne/data/summary/History/202230";
         File directory = new File(directoryPath);
         if (!directory.exists() || !directory.isDirectory()) {

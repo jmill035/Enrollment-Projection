@@ -1,15 +1,16 @@
 # Compiled class file
 **/*.class
 **/.gradle/
-
-.project
+**/*.jar
+project/bin/
+#.project
 .classpath
 .vscode/
 .class
 .jar
 bin/
 build/
-
+**/.vscode
 .gradle/
 
 

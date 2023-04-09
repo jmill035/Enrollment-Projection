@@ -13,7 +13,7 @@ repositories {
 }
 
 application {
-    mainClass = 'odu.edu.cs.cs350.pne.IOReader'
+    mainClass = 'odu.edu.cs.cs350.pne.Enrollment'
 }
 
 dependencies {
@@ -34,7 +34,7 @@ jar {
     manifest {
         attributes 'Implementation-Title' : 'Enrollement Projection',
             'Implementaion-Version' : '1.0',
-            'Main-Class' : 'edu.odu.cs.cs350.pne.IOReader'  
+            'Main-Class' : 'edu.odu.cs.cs350.pne.Enrollment'  
     }
     from { configurations.runtimeClasspath.collect {
         it.isDirectory() ? it : zipTree(it) }
