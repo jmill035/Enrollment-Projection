@@ -1,12 +1,16 @@
 package edu.odu.cs.cs350.pne;
 
 import org.junit.jupiter.api.Test;
-import static org.assertj.core.api.Assertions.assertThat;
+
+import java.io.BufferedReader;
 import java.io.File;
-import static org.junit.jupiter.api.Assertions.*;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.*;
+import static org.hamcrest.Matchers.allOf;
+import static org.hamcrest.Matchers.*;
 
 public class SemesterTest {
 
@@ -21,11 +25,25 @@ public class SemesterTest {
 
  }
  @Test
-   public void testReadFile()
+   public void testReadFile() throws Exception
    {
-      ClassLoader cl = getClass().getClassLoader();
-      File file1 = new File (cl.getResource("./project/src/test/java/edu/odu/cs/cs350/pne/data/summary/History/202230/dates.txt").getFile());
-      assertThat(file1).exists().isFile().canRead();
+      // ClassLoader cl = getClass().getClassLoader();
+      // File file1 = new File (cl.getResource("./project/src/test/java/edu/odu/cs/cs350/pne/data/summary/History/202230/dates.txt").getFile());
+      // assertThat(file1, allOf(exists(), isFile(), isReadable()));
+
+        // Check if the dates file was loaded correctly
+        ClassLoader cl = getClass().getClassLoader();
+        File file = new File(cl.getResource("./project/src/test/java/edu/odu/cs/cs350/pne/data/summary/History/202230/dates.txt").getFile());
+        BufferedReader reader = new BufferedReader(new FileReader(file));
+        String preReg = reader.readLine();
+        String addDeadline = reader.readLine();
+        reader.close();
+
+        // Check that the loaded dates match the expected values
+        assertNotNull(preReg);
+        assertNotNull(addDeadline);
+        assertEquals("2022-01-01", preReg);
+        assertEquals("2022-01-15", addDeadline);
    }
 
    @Test
