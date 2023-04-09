@@ -10,7 +10,7 @@ project/bin/
 .jar
 bin/
 build/
-
+**/.vscode
 .gradle/
 
 
