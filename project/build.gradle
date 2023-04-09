@@ -22,7 +22,6 @@ dependencies {
     testImplementation 'com.opencsv:opencsv:5.7.1'
     testImplementation 'org.apache.poi:poi-ooxml-schemas:4.1.2'
     testImplementation 'org.apache.poi:poi-ooxml:4.1.2'
-
 }
 
 test {
@@ -32,7 +31,7 @@ test {
 
 jar {
     manifest {
-        attributes 'Implementation-Title' : 'Enrollement Projection',
+        attributes 'Implementation-Title' : 'Enrollment Projection',
             'Implementaion-Version' : '1.0',
             'Main-Class' : 'edu.odu.cs.cs350.pne.Enrollment'  
     }
@@ -47,8 +46,8 @@ task copyDocs(type: Copy, dependsOn: javadoc){
 }
 
 task reports(type: Copy, dependsOn: 'build'){
-    from file('src/main/html/')
-    into file('build/reports/')
+    from 'src/main/html'
+    into 'build/reports'
 }
 
 def pagesDir = file("${project.rootDir}/../website-temp").absolutePath
