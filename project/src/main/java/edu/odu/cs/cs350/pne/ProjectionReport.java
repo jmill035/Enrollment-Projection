@@ -17,5 +17,4 @@ public class ProjectionReport {
         }
         return overallCap;
     }
-
 }
