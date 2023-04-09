@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.io.InputStream;
 import java.io.BufferedInputStream;
+import java.io.ByteArrayInputStream;
 
 
 public class EnrollmentTest {
