@@ -32,7 +32,7 @@ test {
 
 jar {
     manifest {
-        attributes 'Implementation-Title' : 'Enrollement Projection',
+        attributes 'Implementation-Title' : 'Enrollment Projection',
             'Implementaion-Version' : '1.0',
             'Main-Class' : 'edu.odu.cs.cs350.pne.Enrollment'  
     }
