@@ -1,7 +1,6 @@
 package edu.odu.cs.cs350.pne;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.BeforeEach;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
@@ -11,17 +10,16 @@ public class SummaryReportTest {
     
     @Test
     public void projectEnrollmentTest() {
-        SummaryReport semester = new SummaryReport();
-        
-        semester.marker = semester.projectedEnrollment(88, 75);
-        assertThat(semester.marker, is ('*'));
-        assertThat(semester.marker, not(is(' ')));
-        assertThat(semester.marker, not(is('a')));
+        SummaryReport report = new SummaryReport();
+        report.projectedEnrollment(88, 75);
+        assertThat(report.getMarker(), is ('*'));
+        assertThat(report.getMarker(), not(is(' ')));
+        assertThat(report.getMarker(), not(is('a')));
 
-        semester.marker = semester.projectedEnrollment(33, 50);
-        assertThat(semester.marker, is (' '));
-        assertThat(semester.marker, not(is('*')));
-        assertThat(semester.marker, not(is('a')));
+        report.projectedEnrollment(33, 50);
+        assertThat(report.getMarker(), is (' '));
+        assertThat(report.getMarker(), not(is('*')));
+        assertThat(report.getMarker(), not(is('a')));
     }
 
 
@@ -37,7 +35,7 @@ public class SummaryReportTest {
 
         assertFalse(semester.toString().contains("Class"));
     }
-
+ 
     @Test
     public double getEnrollmentPercentage() {
         SummaryReport semester = new SummaryReport();
