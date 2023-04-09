@@ -46,3 +46,4 @@ local.properties
 .externalToolBuilders/
 *.launch
 *.code-workspace
+.vscode/settings.json
