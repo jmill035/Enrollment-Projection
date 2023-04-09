@@ -27,10 +27,6 @@ public class SemesterTest {
  @Test
    public void testReadFile() throws Exception
    {
-      // ClassLoader cl = getClass().getClassLoader();
-      // File file1 = new File (cl.getResource("./project/src/test/java/edu/odu/cs/cs350/pne/data/summary/History/202230/dates.txt").getFile());
-      // assertThat(file1, allOf(exists(), isFile(), isReadable()));
-
         // Check if the dates file was loaded correctly
         ClassLoader cl = getClass().getClassLoader();
         File file = new File(cl.getResource("./project/src/test/java/edu/odu/cs/cs350/pne/data/summary/History/202230/dates.txt").getFile());
