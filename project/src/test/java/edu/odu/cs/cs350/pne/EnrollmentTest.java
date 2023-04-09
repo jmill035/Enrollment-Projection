@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.io.InputStream;
+import java.io.BufferedInputStream;
 
 
 public class EnrollmentTest {
