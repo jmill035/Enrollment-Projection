@@ -17,4 +17,9 @@ public class ProjectionReport {
         }
         return overallCap;
     }
+
+    public void deadlineOfRecentSem()
+    {
+        //
+    }
 }
