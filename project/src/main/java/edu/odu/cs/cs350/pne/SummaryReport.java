@@ -1,10 +1,16 @@
 package edu.odu.cs.cs350.pne;
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SummaryReport {
 
-    char marker;        // represents the projected enrollment 
-
+    private char marker;        // represents the projected enrollment
+    
+    public SummaryReport() {
+        this.marker = ' ';
+    }
+    
     /**
      * If the projected enrollment is greater than the cap, then an 
      * asterisk is returned. Otherwise, a blank space is returned.
@@ -15,14 +21,19 @@ public class SummaryReport {
     public char projectedEnrollment(int projected, int cap) {
 
         if(projected > cap) {
-            return '*';
+            marker = '*';
         }
         else {
-            return ' ';
+            marker = ' ';
         }
+
+        return marker;
 
     }
 
+    public char getMarker() {
+        return marker;
+    }
     /**
      * Prints the headers for the summary projection report
      */
@@ -30,22 +41,27 @@ public class SummaryReport {
 
         String header = String.format("%-1s %-10s %-15s %-15s %-15s", 
                         " ", "Course", "Enrollment", "Projected", "Cap");
-        
-        // "observable" behavior
-        System.out.println(header);
 
+        StringBuilder body = new StringBuilder();
+        /*
+        for(Course course: courses) {
+            body.append(String.format("%-1s"));
+            
+        }
+        */
         return header;
     }
 
+    /* 
 
-    public static double getEnrollmentPercentage (Enrollment begin, Enrollment end ) {
+    public static double getEnrollmentPercentage (Enrollement begin, Enrollement end ) {
 
-        Enrollment start = Enrollment.now();
+        Enrollement start = Enrollement.now();
 
         //Registration end_Date = EndDate.now();
 
         int EnrollmentPercentage = end.getRegistrationdate() - start.getRegistrationDate();
-        //     int EnrollmentPercentage = end.Enrollment/...date() - start.Enrollment/..date();
+        //     int EnrollmentPercentage = end.Enrollement/...date() - start.Enrollement/..date();
 
 
         double percentage =((double) EnrollmentPercentage) * 100;
@@ -55,6 +71,7 @@ public class SummaryReport {
 
         return percentage;
     }
+*/
 
 }
 
