@@ -16,47 +16,31 @@ import java.util.Scanner;
  * 
  * 
  * 
- * 
- * 
- * 
- * 
- * 
  */
 
+ public class Enrollment {
 
-
-public class Enrollment {
-
-    /**
-     * Main program for Enrollment
-     *
-     * @param args command line (CLI) parameters
-     * @throws IOException when file named in command line cannot be read
-     */
-    public static void main(String[] args) throws IOException {
+  /**
+   * Main program for Enrollment
+   *
+   * @param args command line (CLI) parameters
+   * @throws IOException when file named in command line cannot be read
+   */
+  public static void main(String[] args) throws IOException {
       if (args.length == 0) {
-        new Enrollment().doIt(System.in);
+          new Enrollment().doIt(System.in, args);
       } else {
-        BufferedInputStream in = new BufferedInputStream(new FileInputStream(new File(args[0])));
-        new Enrollment().doIt(in);
+          InputStream in = new FileInputStream(new File(args[0]));
+          new Enrollment().doIt(in, args);
       }
-    }
-
-    /**
-     * doIt should implement the commandline arguments for both Detailed_Report.java and Summary_Report.java
-     * 
-     */
-// this, and the above was copied from Highway.java and should be tested and changed accordingly    
-    private void doIt(InputStream in) {
-      Scanner input = new Scanner(in);
-      double xMin = input.nextDouble();
-      double xMax = input.nextDouble();
-      System.out.printf("Total distance: %7.1f%n", xMax - xMin);
-
-      input.close();
-    }
-  
   }
 
-
+  /**
+   * doIt should implement the command line arguments for both Detailed_Report.java and Summary_Report.java
+   *
+   */
+  private void doIt(InputStream in, String[] args) {
+      IOReader.beginIOread(args);
+  }
+}
 
