@@ -4,23 +4,18 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 import java.io.BufferedReader;
 import java.io.File;
-//import java.util.Scanner;
-//import java.io.FileNotFoundException; 
-import java.io.FileReader; 
-//import java.io.IOException;
 import java.io.FileReader;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.*;
-
+import java.time.format.DateTimeFormatter;
 
 
 
 public class Semester {
 
     private Scanner scanner;
-    private static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    private static DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
 
     public Semester() {
         scanner = new Scanner(System.in);
@@ -63,8 +58,8 @@ public void supplyCutoff (String args[]) throws Exception
     
         reader.close();
 
-        Date preRegDate = dateFormat.parse(preReg);
-        Date addDeadlineDate = dateFormat.parse(addDeadline);
+        LocalDate preRegDate = LocalDate.parse(preReg, dateFormat);
+        LocalDate addDeadlineDate = LocalDate.parse(addDeadline, dateFormat);
 
         //read csv files in the sample data and sort them only by files ending in .csv
         String csvPath = "./project/src/test/java/edu/odu/cs/cs350/pne/data/summary/History/202230";
@@ -82,10 +77,17 @@ public void supplyCutoff (String args[]) throws Exception
                 }
             }
         }
-        for (String fileName : csvFiles)
+        //look at all .csv files and then ignore dates outside of prereg and addDeadline
+        List <LocalDate> datesBetween = preRegDate.datesUntil(addDeadlineDate).collect(Collectors.toList());
+        for (LocalDate date : datesBetween)
         {
-            //look at all .csv files and then ignore dates outside of prereg and addDeadline
-            List <LocalDate> datesBetween = preRegDate.datesUntil(addDeadlineDate).collect(Collectors.toList());
+            for (String fileName : csvFiles)
+            {
+                if (fileName.contains(date.format(DateTimeFormatter.BASIC_ISO_DATE)))
+                {
+                    System.out.println(date.format(dateFormat));
+                }
+            }
         }
     }
 }
