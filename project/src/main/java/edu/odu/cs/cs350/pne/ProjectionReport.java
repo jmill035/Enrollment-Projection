@@ -1,5 +1,6 @@
 package edu.odu.cs.cs350.pne;
 
+import java.util.Date;
 import java.util.List;
 
 public class ProjectionReport {
@@ -16,10 +17,5 @@ public class ProjectionReport {
          overallCap += offering.getOverallCap();   
         }
         return overallCap;
-    }
-
-    public void deadlineOfRecentSem()
-    {
-        //
     }
 }

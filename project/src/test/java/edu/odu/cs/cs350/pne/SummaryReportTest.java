@@ -42,4 +42,11 @@ public class SummaryReportTest {
 
         
     }
+
+    @Test
+    public void projectedEnrollmentValueTest()
+    {
+        SummaryReport sem = new SummaryReport();
+        
+    }
 }

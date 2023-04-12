@@ -1,6 +1,7 @@
 package edu.odu.cs.cs350.pne;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class SummaryReport {
@@ -69,6 +70,18 @@ public class SummaryReport {
         System.out.println("Percentage of enrollment period that has passed:" + percentage + "%");
 
         return percentage;
+    }
+    /* 
+     * As a course scheduler I would like to see a Summary Projection
+     * Report containing correct values for the projected enrollment of 
+     * each course on the add deadline based on the most recent semester.
+     */
+    public void projectedEnrollmentValue(String args[])
+    {
+        Semester semester = new Semester();
+        Date preRegDate = semester.supplyCutoff();
+        int projectedEnrollment = Math.round(marker * ((float) addDeadlineDate - preRegDate));
+        
     }
 
 }
