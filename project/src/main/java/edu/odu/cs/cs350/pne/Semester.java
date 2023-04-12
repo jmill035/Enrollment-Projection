@@ -15,6 +15,8 @@ public class Semester {
 
     private Scanner scanner;
     private static DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    public Date preRegDate;
+    public Date addDeadlineDate;
 
 
     public Semester() {
