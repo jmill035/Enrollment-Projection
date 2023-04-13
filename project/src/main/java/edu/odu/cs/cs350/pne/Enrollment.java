@@ -39,7 +39,7 @@ import java.util.Scanner;
    * doIt should implement the command line arguments for both Detailed_Report.java and Summary_Report.java
    *
    */
-  private void doIt(InputStream in, String[] args) {
+  public void doIt(InputStream in, String[] args) {
       IOReader.beginIOread(args);
   }
 

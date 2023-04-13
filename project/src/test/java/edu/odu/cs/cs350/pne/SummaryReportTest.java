@@ -36,12 +36,12 @@ public class SummaryReportTest {
         assertFalse(semester.toString().contains("Class"));
     }
  
-    @Test
-    public double getEnrollmentPercentage() {
-        SummaryReport semester = new SummaryReport();
+    // @Test
+    // public double getEnrollmentPercentage() {
+    //     SummaryReport semester = new SummaryReport();
 
         
-    }
+    // }
 
     @Test
     public void projectedEnrollmentValueTest()
