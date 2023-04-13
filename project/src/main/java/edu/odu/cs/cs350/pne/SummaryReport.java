@@ -54,35 +54,35 @@ public class SummaryReport {
     }
 
 
-    public static double getEnrollmentPercentage (Enrollment begin, Enrollment end ) {
+    // public static double getEnrollmentPercentage (Enrollment begin, Enrollment end ) {
 
-        Enrollment start = Enrollment.now();
+    //     Enrollment start = Enrollment.now();
 
-        //Registration end_Date = EndDate.now();
+    //     //Registration end_Date = EndDate.now();
 
-        int EnrollmentPercentage = end.getRegistrationdate() - start.getRegistrationDate();
-        //     int EnrollmentPercentage = end.Enrollement/...date() - start.Enrollement/..date();
+    //     int EnrollmentPercentage = end.getRegistrationdate() - start.getRegistrationDate();
+    //     //     int EnrollmentPercentage = end.Enrollement/...date() - start.Enrollement/..date();
 
 
-        double percentage =((double) EnrollmentPercentage) * 100;
+    //     double percentage =((double) EnrollmentPercentage) * 100;
 
-        //this may be where it belongs @Kofi, I moved it accidentally
-        System.out.println("Percentage of enrollment period that has passed:" + percentage + "%");
+    //     //this may be where it belongs @Kofi, I moved it accidentally
+    //     System.out.println("Percentage of enrollment period that has passed:" + percentage + "%");
 
-        return percentage;
-    }
-    /* 
-     * As a course scheduler I would like to see a Summary Projection
-     * Report containing correct values for the projected enrollment of 
-     * each course on the add deadline based on the most recent semester.
-     */
-    public void projectedEnrollmentValue(String args[])
-    {
-        Semester semester = new Semester();
-        Date preRegDate = semester.supplyCutoff();
-        int projectedEnrollment = Math.round(marker * ((float) addDeadlineDate - preRegDate));
+    //     return percentage;
+    // }
+    // /* 
+    //  * As a course scheduler I would like to see a Summary Projection
+    //  * Report containing correct values for the projected enrollment of 
+    //  * each course on the add deadline based on the most recent semester.
+    //  */
+    // public void projectedEnrollmentValue(String args[])
+    // {
+    //     Semester semester = new Semester();
+    //     Date preRegDate = semester.supplyCutoff();
+    //     int projectedEnrollment = Math.round(marker * ((float) addDeadlineDate - preRegDate));
         
-    }
+    // }
 
 }
 
