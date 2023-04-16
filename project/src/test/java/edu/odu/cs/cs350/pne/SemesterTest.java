@@ -25,7 +25,7 @@ public class SemesterTest {
 
 //  }
 
- @Test
+   @Test
    public void testReadFile() throws Exception
    {
         // Check if the dates file was loaded correctly
@@ -43,7 +43,7 @@ public class SemesterTest {
         assertEquals("2022-01-15", addDeadline);
    }
 
-   @Test
+      @Test
       public void testCsvFile()
       {
          String csvPath = "./project/src/test/java/edu/odu/cs/cs350/pne/data/summary/History/202230";
