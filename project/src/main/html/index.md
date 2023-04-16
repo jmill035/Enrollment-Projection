@@ -1,5 +1,5 @@
 # Reports 
 A1
 
-* [Tests](tests/test/)
-* [JavaDoc](javadoc/)
+* [Tests](./reports/tests/test/)
+* [JavaDoc](./reports/javadoc/)
