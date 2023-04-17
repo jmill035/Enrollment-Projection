@@ -5,8 +5,11 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
+
+//consider changing into SemesterHistory/History class
+//the output of current class should be saved in a datastructure(list,etc)
 public class IOReader {
-    public static void beginIOread (String[] args) {
+    public void beginIOread (String[] args) {
         String directoryPath = "/home/cs_jmill035/Enrollment-Projection/project/src/test/java/edu/odu/cs/cs350/pne/data/summary/History/202230";
         File directory = new File(directoryPath);
         if (!directory.exists() || !directory.isDirectory()) {
@@ -22,7 +25,7 @@ public class IOReader {
             try (BufferedReader br = new BufferedReader(new FileReader(file))) {
                 String line;
                 while ((line = br.readLine()) != null){
-                    String[] values = line.split(",");
+                    String[] values = line.split(","); //some commas are within quotes and faculty name abbreviations. high potential for error, recommend using openCSV
                     for (String value : values) {
                         System.out.print(value + ", ");
                     }

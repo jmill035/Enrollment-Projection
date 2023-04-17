@@ -17,7 +17,7 @@ import java.util.Scanner;
  * 
  * 
  */
-
+//consider changing to main / driver
  public class Enrollment {
 
   /**
@@ -34,6 +34,11 @@ import java.util.Scanner;
           new Enrollment().doIt(in, args);
       }
   }
+
+
+  //historical
+  //next to last (see SRS)
+  //last is (see SRS)
 
   /**
    * doIt should implement the command line arguments for both Detailed_Report.java and Summary_Report.java

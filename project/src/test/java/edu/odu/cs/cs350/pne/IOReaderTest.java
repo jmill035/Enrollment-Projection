@@ -10,7 +10,8 @@ import org.junit.jupiter.api.Test;
 class IOReaderTest {
     @Test
     void testReadCSVFiles() {
-        String directoryPath = "/home/cs_jmill035/Enrollment-Projection/project/src/test/java/edu/odu/cs/cs350/pne/data/summary/History/202230";
+       // String directoryPath = "src/test/java/edu/odu/cs/cs350/pne/data/summary/History/202230";
+        String directoryPath = "src/test/data/summary/History/202230/";
         File directory = new File(directoryPath);
         assertTrue(directory.exists(), "Directory does not exist");
         assertTrue(directory.isDirectory(), "Path is not a directory");
