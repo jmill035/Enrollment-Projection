@@ -24,9 +24,9 @@ jobs:
         ../gradlew build
         ../gradlew test
     - name: Reports
-      run: ./gradlew deployReports
-    # - name: Deploy
-    #   uses: JamesIves/github-pages-deploy-action@v4.2.5
-    #   with:
-    #     branch: gh-pages
-    #     folder: project/build/reports
+      run: ./gradlew reports
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@v4.2.5
+      with:
+        branch: gh-pages
+        folder: project/build/reports
