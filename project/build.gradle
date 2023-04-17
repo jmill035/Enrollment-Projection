@@ -60,11 +60,11 @@ task workTree(dependsOn: ['clearPages']) {
     doLast {
         exec {
             workingDir = '.'
-            commandLine = ['git', 'worktree', 'add', '-f', pagesDir, 'main']
+            commandLine = ['git', 'worktree', 'add', '-f', pagesDir, 'gh-pages']
         }
         exec {
             workingDir = pagesDir
-            commandLine = ['git', 'checkout', 'main']
+            commandLine = ['git', 'checkout', 'gh-pages']
         }
         exec {
             workingDir = pagesDir
