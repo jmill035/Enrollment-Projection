@@ -46,7 +46,6 @@ public class SummaryReport {
         return cap;
     }
 
-
     
     /**
      * If the projected enrollment is greater than the cap, then an 
@@ -86,7 +85,11 @@ public class SummaryReport {
             
         }
         */
-        return header;
+        String offering = String.format("%-1s %-10s %-15d %-15d %-15d",
+                " ", course, enrollment, projectedEnrollmentVal, cap);
+
+        return header + "\n" + offering;
+        //return header;
     }
 
 
@@ -134,19 +137,17 @@ public class SummaryReport {
         percentPassed = Math.max(percentPassed, 0);
         percentPassed = Math.min(percentPassed, 100);
 
-
         // prints the Summary Projection Report header
         System.out.println(percentPassed + "% of enrollment period has elapsed.");
-        System.out.printf("%-8s %-10s %-12s %-8s%n", "Marker", "Course", "Enrollment", "Projected");
-        
+        System.out.println(courseOfferings.get(0).toString());
+
         // calculates the projected enrollment for each course on the add deadline and prints the report
         for (SummaryReport offering : courseOfferings) {
             int currentEnrollment = offering.getEnrollment();
             int daysLeft = (int) ChronoUnit.DAYS.between(today, addDeadlineDate);
             int projectedEnrollment = Math.round(currentEnrollment * ((float) daysLeft / totalDays));
             String marker = (projectedEnrollment > offering.getCap()) ? "*" : " ";
-            System.out.printf("%-8s %-10s %-12d %-8d %-8d%n",
-                    marker, offering.getCourse(), currentEnrollment, projectedEnrollment, offering.getCap());
+            System.out.println(marker + " " + offering.toString());
         }
     }
 }
