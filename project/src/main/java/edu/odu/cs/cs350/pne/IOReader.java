@@ -10,7 +10,7 @@ import java.io.IOException;
 //the output of current class should be saved in a datastructure(list,etc)
 public class IOReader {
     public void beginIOread (String[] args) {
-        String directoryPath = "/home/cs_jmill035/Enrollment-Projection/project/src/test/java/edu/odu/cs/cs350/pne/data/summary/History/202230";
+        String directoryPath = "./project/src/test/java/edu/odu/cs/cs350/pne/data/summary/History/202230";
         File directory = new File(directoryPath);
         if (!directory.exists() || !directory.isDirectory()) {
             System.out.println("Directory does not exist or is not a directory");
