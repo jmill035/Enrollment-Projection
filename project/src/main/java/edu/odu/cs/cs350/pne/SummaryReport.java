@@ -111,7 +111,7 @@ public class SummaryReport {
     //     return percentage;
     // }
 
-    public void getEnrollmentPercentage(String[] args) throws IOException
+    public void getEnrollmentProjection(String[] args) throws IOException
     {
         // reads the data.txt file and reads line 1 as pre-reg date and reads 2nd line as deadline date
         ClassLoader cl = getClass().getClassLoader();

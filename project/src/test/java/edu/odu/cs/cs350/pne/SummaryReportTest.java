@@ -68,25 +68,39 @@ public class SummaryReportTest {
     // }
     
     @Test
-    void testGetEnrollmentPercentageWithFileNotFound() throws IOException {
+    public void testProjectedEnrollmentLessThanCap() {
+        SummaryReport summaryReport = new SummaryReport("CS120G", 46, 104, 120);
+        assertEquals(' ', summaryReport.projectedEnrollment(90, 120));
+        assertEquals(' ', summaryReport.getMarker());
+    }
+
+    @Test
+    public void testProjectedEnrollmentGreaterThanCap() {
+        SummaryReport summaryReport = new SummaryReport("CS120G", 46, 104, 120);
+        assertEquals('*', summaryReport.projectedEnrollment(130, 120));
+        assertEquals('*', summaryReport.getMarker());
+    }
+
+    @Test
+    void testGetEnrollmentProjectionWithFileNotFound() throws IOException {
         SummaryReport report = new SummaryReport();
 
         assertThrows(FileNotFoundException.class, () -> {
-            report.getEnrollmentPercentage(new String[] {"nonexistent.txt"});
+            report.getEnrollmentProjection(new String[] {"nonexistent.txt"});
             });
     }
 
     @Test
-    void testGetEnrollmentPercentageWithInvalidDateFormat() throws IOException {
+    void testGetEnrollmentProjectionWithInvalidDateFormat() throws IOException {
         SummaryReport report = new SummaryReport();
 
         assertThrows(DateTimeParseException.class, () -> {
-            report.getEnrollmentPercentage(new String[] {"./data/summary/History/202230/invalid_dates.txt"});
+            report.getEnrollmentProjection(new String[] {"./data/summary/History/202230/invalid_dates.txt"});
             });
     }
 
     @Test
-    public void testGetEnrollmentPercentage() throws IOException {
+    public void testGetEnrollmentProjection() throws IOException {
 
         // mock the input file with pre-reg date of 2023-01-01 and add deadline of 2023-01-15
         ClassLoader cl = getClass().getClassLoader();
@@ -100,7 +114,7 @@ public class SummaryReportTest {
 
         // call the method and verify console output
         SummaryReport summaryReport = new SummaryReport();
-        summaryReport.getEnrollmentPercentage(new String[] {});
+        summaryReport.getEnrollmentProjection(new String[] {});
         String expectedOutput = "100% of enrollment period has elapsed.\n" +
                             "  Course     Enrollment      Projected        Cap             \n" +
                             "  * CS120G   46              66              120             \n";
