@@ -4,52 +4,51 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SummaryReport {
+ 
+    private List<Course> courses;
 
-    private char marker;        // represents the projected enrollment
-    
     public SummaryReport() {
-        this.marker = ' ';
+        this.courses = new ArrayList<>();
+    }
+
+    
+    public void addCourse(Course course) {
+        this.courses.add(course);
     }
     
-    /**
-     * If the projected enrollment is greater than the cap, then an 
-     * asterisk is returned. Otherwise, a blank space is returned.
-     * @param projected the number of students projected to enroll 
-     * @param cap the maximum number of students able to enroll
-     * @return char for projected enrollment
-     */
-    public char projectedEnrollment(int projected, int cap) {
+    public char getMarker(int projected, Course course) {
 
-        if(projected > cap) {
-            marker = '*';
+        if(projected > course.calcOverallCap()) {
+            return '*';
         }
         else {
-            marker = ' ';
+            return ' ';
         }
 
-        return marker;
-
     }
 
-    public char getMarker() {
-        return marker;
-    }
     /**
-     * Prints the headers for the summary projection report
+     * Prints the summary projection report
      */
     public String toString() {
-
-        String header = String.format("%-1s %-10s %-15s %-15s %-15s", 
-                        " ", "Course", "Enrollment", "Projected", "Cap");
-
         StringBuilder body = new StringBuilder();
-        /*
-        for(Course course: courses) {
-            body.append(String.format("%-1s"));
-            
+
+        // first header
+        //body.append().append("\n");
+
+        body.append(String.format("%-1s %-10s %-15s %-15s %-15s", 
+                        " ", "Course", "Enrollment", "Projected", "Cap"));
+    
+        for(Course course : courses) {
+            // need to implement projected
+            body.append(String.format("%-1s", getMarker(0, course)));
+            body.append(String.format("%-10s", course.getCourseName()));
+            body.append(String.format("%-15d", course.calcOverallEnrollment()));
+            //body.append(String.format("%-15d", ));
+            body.append(String.format("%-15d", course.calcOverallCap()));
         }
-        */
-        return header;
+
+        return body.toString();
     }
 
 

@@ -1,11 +1,5 @@
 package edu.odu.cs.cs350.pne;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
-import java.util.List;
-import java.util.ArrayList;
-
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -20,9 +14,6 @@ public class CourseTest {
     Section section1;
     Section section2;
     Section section3;
-
-    //idk if need 
-    List<Section> inputs;
 
     Course course1;
     Course course2;
