@@ -11,6 +11,8 @@ import java.time.temporal.ChronoUnit;
 import java.io.IOException;
 
 public class SummaryReport {
+ 
+    private List<Course> courses;
 
     private char marker;        // represents the projected enrollment
     private static DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -20,7 +22,7 @@ public class SummaryReport {
     private int cap;
     
     public SummaryReport() {
-        this.marker = ' ';
+        this.courses = new ArrayList<>();
     }
 
     public SummaryReport(String course, int enrollment, int projectedEnrollmentVal, int cap) {
@@ -45,51 +47,43 @@ public class SummaryReport {
     public int getCap() {
         return cap;
     }
-
     
-    /**
-     * If the projected enrollment is greater than the cap, then an 
-     * asterisk is returned. Otherwise, a blank space is returned.
-     * @param projected the number of students projected to enroll 
-     * @param cap the maximum number of students able to enroll
-     * @return char for projected enrollment
-     */
-    public char projectedEnrollment(int projected, int cap) {
+    public void addCourse(Course course) {
+        this.courses.add(course);
+    }
+    
+    public char getEnrMarker(int projected, Course course) {
 
-        if(projected > cap) {
-            marker = '*';
+        if(projected > course.calcOverallCap()) {
+            return '*';
         }
         else {
-            marker = ' ';
+            return ' ';
         }
-
-        return marker;
-
     }
 
-    public char getMarker() {
-        return marker;
-    }
     /**
-     * Prints the headers for the summary projection report
+     * Prints the summary projection report
      */
     public String toString() {
+        StringBuilder body = new StringBuilder();
 
-        String header = String.format("%-1s %-10s %-15s %-15s %-15s", 
-                        " ", "Course", "Enrollment", "Projected", "Cap");
+        // first header
+        //body.append().append("\n");
 
-        //StringBuilder body = new StringBuilder();
-        /*
-        for(Course course: courses) {
-            body.append(String.format("%-1s"));
-            
+        body.append(String.format("%-1s %-10s %-15s %-15s %-15s", 
+                        " ", "Course", "Enrollment", "Projected", "Cap"));
+    
+        for(Course course : courses) {
+            // need to implement projected
+            body.append(String.format("%-1s", getEnrMarker(0, course)));
+            body.append(String.format("%-10s", course.getCourseName()));
+            body.append(String.format("%-15d", course.calcOverallEnrollment()));
+            //body.append(String.format("%-15d", ));
+            body.append(String.format("%-15d", course.calcOverallCap()));
         }
-        */
-        String offering = String.format("%-1s %-10s %-15d %-15d %-15d",
-                " ", course, enrollment, projectedEnrollmentVal, cap);
 
-        return header + "\n" + offering;
-        //return header;
+        return body.toString();
     }
 
 
