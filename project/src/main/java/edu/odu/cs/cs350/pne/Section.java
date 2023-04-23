@@ -30,11 +30,6 @@ public class Section {
         this.offering = offering;
     }
 
-    //add set functions?
-    public void setCRN(String crn) {
-        this.crn = crn;
-    }
-
     public String getCRN() {
         return crn;
     }
@@ -53,5 +48,15 @@ public class Section {
 
     public Offering getOffering() {
         return offering;
+    }
+
+    //idk
+    @Override
+    public String toString() {
+        String output = "";
+        
+        output += crn;
+
+        return output;
     }
 }

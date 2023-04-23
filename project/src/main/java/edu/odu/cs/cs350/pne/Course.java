@@ -20,14 +20,6 @@ public class Course {
         this.sections = new ArrayList<>();
     }
 
-    public void setSubj(String subj) {
-        this.subj = subj;
-    }
-
-    public void setCrse(String crse) {
-        this.crse = crse;
-    }
-
     public String getSubj() {
         return subj;
     }
@@ -41,10 +33,10 @@ public class Course {
     }
 
     public void addSection(Section section) {
-        sections.add(section);
+        this.sections.add(section);
     }
 
-    public Section getSection(String crn) {
+    public Section searchSection(String crn) {
         for(Section s : sections) {
             if(s.getCRN().equals(crn)){
                 return s;
@@ -54,6 +46,38 @@ public class Course {
         return null;
     }
 
-   //toString?
+    public int calcOverallEnrollment() {
+        int overallEnr = 0;
+        for(Section section : sections) {
+            Offering offering = section.getOffering();
+            if(offering != null) {
+                overallEnr += offering.getOverallEnr();
+            }
+        }
+        
+        return overallEnr;
+    }
+
+    public int calcOverallCap() {
+        int overallCap = 0;
+        for(Section section : sections) {
+            Offering offering = section.getOffering();
+            if(offering != null) {
+                overallCap += offering.getOverallCap();
+            }
+        }
+
+        return overallCap;
+    }
+
+   @Override
+   public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(courseName).append("\n");
+        for(Section s : sections) {
+            sb.append(s.toString()).append("\n");
+        }
+        return sb.toString();
+    }
 }
 

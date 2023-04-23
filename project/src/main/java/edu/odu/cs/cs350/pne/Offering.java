@@ -12,18 +12,6 @@ public class Offering {
         this.overallEnr = overallEnr;
     }
 
-    public void setXlstGroup(String xlstGroup) {
-        this.xlstGroup = xlstGroup;
-    }
-
-    public void setOverallCap(int overallCap) {
-        this.overallCap = overallCap;
-    }
-
-    public void setOverallEnr(int overallEnr) {
-        this.overallEnr = overallEnr;
-    }
-
     public String getXlstGroup() {
         return xlstGroup;
     }
@@ -35,4 +23,6 @@ public class Offering {
     public int getOverallEnr() {
         return overallEnr;
     }
+
+    // need toString?
 }
