@@ -32,7 +32,6 @@ public class Semester {
         System.out.println(pastDirectory);
         System.out.println(currentDirectory);
 
-        // Return true if the method completes succesfully
         return true;
 
     }
