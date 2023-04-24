@@ -123,12 +123,12 @@ public class SummaryReportTest {
     // }
 
     // @Test
-    // void testGetEnrollmentProjectionWithFileNotFound() throws IOException {
+    // void testGetEnrollmentProjectionWithFileNotFound() {
     //     SummaryReport report = new SummaryReport();
-
+    
     //     assertThrows(FileNotFoundException.class, () -> {
     //         report.getEnrollmentProjection(new String[] {"nonexistent.txt"});
-    //         });
+    //     });
     // }
 
     // @Test
