@@ -25,9 +25,13 @@ import com.opencsv.CSVReader;
  * 
  */
  public class Driver {
+    private static List<String[]> data;
+    public static List<String[]> getData() {
+        return data;
+    }
+
 
     public static void main(String[] args) {
-
         String detailedProjectReportOutputLocation = "";
         String currentSemesterProjection = "";
         List<String> semesterDirectories = new ArrayList<>(); // this list is from CLI input. and only directory locations
@@ -71,7 +75,7 @@ import com.opencsv.CSVReader;
                 String[] shortLine = Arrays.copyOf(line, 10);
                 data.add(shortLine);
             }
-            //System.out.println(data);
+            System.out.println(data);
 
         } catch (Exception e) {
             e.printStackTrace();
