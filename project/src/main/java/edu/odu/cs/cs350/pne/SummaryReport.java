@@ -15,7 +15,7 @@ public class SummaryReport {
     private List<Course> courses;               // have two list bc idk which list we will use
     private List<Section> sections;
 
-    //private char marker;        // represents the projected enrollment
+    private char marker;        // represents the projected enrollment
     private static DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     private String course;
     private int enrollment;
@@ -26,7 +26,7 @@ public class SummaryReport {
         this.marker = ' ';
         this.course = " ";
         this.enrollment = 0;
-        this.projectedEnrollmentVal = 0;
+        this.projectedEnrollment = 0;
         this.cap = 0;
 
         this.courses = new ArrayList<>();
@@ -132,10 +132,10 @@ public class SummaryReport {
                         " ", "Course", "Enrollment", "Projected", "Cap"));
     
         for(Course course : courses) {
-            body.append(String.format("%-1s", getEnrMarker(projectedEnrollmentVal, course)));
+            body.append(String.format("%-1s", getEnrMarker(projectedEnrollment, course)));
             body.append(String.format("%-10s", course.getCourseName()));
             body.append(String.format("%-15d", course.calcOverallEnrollment()));
-            body.append(String.format("%-15d", projectedEnrollmentVal));
+            body.append(String.format("%-15d", projectedEnrollment));
             body.append(String.format("%-15d", course.calcOverallCap()));
         }
 
@@ -143,7 +143,7 @@ public class SummaryReport {
             body.append(String.format("%-1s", marker));
             body.append(String.format("%-10s", course));
             body.append(String.format("%-15d", calcOverallEnrollment()));
-            body.append(String.format("%-15d", projectedEnrollmentVal));
+            body.append(String.format("%-15d", projectedEnrollment));
             body.append(String.format("%-15d", calcOverallCap()));
         }
 
