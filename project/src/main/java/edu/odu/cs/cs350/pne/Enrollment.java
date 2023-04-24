@@ -45,7 +45,7 @@ import java.util.Scanner;
    *
    */
   public void doIt(InputStream in, String[] args) {
-      IOReader.beginIOread(args);
+      //IOReader.beginIOread(args);
   }
 
 public int getRegistrationdate() {
