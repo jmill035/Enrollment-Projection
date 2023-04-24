@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -179,33 +179,38 @@ extends java.lang.Object</pre>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#calcOverallCap()">calcOverallCap</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#calcOverallEnrollment()">calcOverallEnrollment</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCourseName()">getCourseName</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCrse()">getCrse</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code><a href="Section.html" title="class in edu.odu.cs.cs350.pne">Section</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSection(java.lang.String)">getSection</a></span>&#8203;(java.lang.String&nbsp;crn)</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSubj()">getSubj</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setCrse(java.lang.String)">setCrse</a></span>&#8203;(java.lang.String&nbsp;crse)</code></th>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code><a href="Section.html" title="class in edu.odu.cs.cs350.pne">Section</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#searchSection(java.lang.String)">searchSection</a></span>&#8203;(java.lang.String&nbsp;crn)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setSubj(java.lang.String)">setSubj</a></span>&#8203;(java.lang.String&nbsp;subj)</code></th>
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -214,7 +219,7 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
-<code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
+<code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, wait, wait, wait</code></li>
 </ul>
 </li>
 </ul>
@@ -252,24 +257,6 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a id="setSubj(java.lang.String)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setSubj</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;setSubj&#8203;(java.lang.String&nbsp;subj)</pre>
-</li>
-</ul>
-<a id="setCrse(java.lang.String)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setCrse</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;setCrse&#8203;(java.lang.String&nbsp;crse)</pre>
-</li>
-</ul>
 <a id="getSubj()">
 <!--   -->
 </a>
@@ -306,13 +293,44 @@ extends java.lang.Object</pre>
 <pre class="methodSignature">public&nbsp;void&nbsp;addSection&#8203;(<a href="Section.html" title="class in edu.odu.cs.cs350.pne">Section</a>&nbsp;section)</pre>
 </li>
 </ul>
-<a id="getSection(java.lang.String)">
+<a id="searchSection(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>searchSection</h4>
+<pre class="methodSignature">public&nbsp;<a href="Section.html" title="class in edu.odu.cs.cs350.pne">Section</a>&nbsp;searchSection&#8203;(java.lang.String&nbsp;crn)</pre>
+</li>
+</ul>
+<a id="calcOverallEnrollment()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>calcOverallEnrollment</h4>
+<pre class="methodSignature">public&nbsp;int&nbsp;calcOverallEnrollment()</pre>
+</li>
+</ul>
+<a id="calcOverallCap()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>calcOverallCap</h4>
+<pre class="methodSignature">public&nbsp;int&nbsp;calcOverallCap()</pre>
+</li>
+</ul>
+<a id="toString()">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>getSection</h4>
-<pre class="methodSignature">public&nbsp;<a href="Section.html" title="class in edu.odu.cs.cs350.pne">Section</a>&nbsp;getSection&#8203;(java.lang.String&nbsp;crn)</pre>
+<h4>toString</h4>
+<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;toString()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code>toString</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
+</dl>
 </li>
 </ul>
 </li>

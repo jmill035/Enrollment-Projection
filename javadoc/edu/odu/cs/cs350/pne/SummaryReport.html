@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -154,6 +154,13 @@ extends java.lang.Object</pre>
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E()">SummaryReport</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
+<tr class="rowColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,int,int,int)">SummaryReport</a></span>&#8203;(java.lang.String&nbsp;course,
+             int&nbsp;enrollment,
+             int&nbsp;projectedEnrollment,
+             int&nbsp;cap)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
 </table>
 </li>
 </ul>
@@ -173,24 +180,46 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>char</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getMarker()">getMarker</a></span>()</code></th>
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addCourse(edu.odu.cs.cs350.pne.Course)">addCourse</a></span>&#8203;(<a href="Course.html" title="class in edu.odu.cs.cs350.pne">Course</a>&nbsp;course)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>char</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#projectedEnrollment(int,int)">projectedEnrollment</a></span>&#8203;(int&nbsp;projected,
-                   int&nbsp;cap)</code></th>
-<td class="colLast">
-<div class="block">If the projected enrollment is greater than the cap, then an 
- asterisk is returned.</div>
-</td>
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCap()">getCap</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCourse()">getCourse</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>char</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEnrMarker(int,edu.odu.cs.cs350.pne.Course)">getEnrMarker</a></span>&#8203;(int&nbsp;projected,
+            <a href="Course.html" title="class in edu.odu.cs.cs350.pne">Course</a>&nbsp;course)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEnrollment()">getEnrollment</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEnrollmentProjection(java.lang.String%5B%5D)">getEnrollmentProjection</a></span>&#8203;(java.lang.String[]&nbsp;args)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getProjectedEnrollment()">getProjectedEnrollment</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Prints the headers for the summary projection report</div>
+<div class="block">Prints the summary projection report</div>
 </td>
 </tr>
 </table>
@@ -220,10 +249,22 @@ extends java.lang.Object</pre>
 <a id="&lt;init&gt;()">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>SummaryReport</h4>
 <pre>public&nbsp;SummaryReport()</pre>
+</li>
+</ul>
+<a id="&lt;init&gt;(java.lang.String,int,int,int)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>SummaryReport</h4>
+<pre>public&nbsp;SummaryReport&#8203;(java.lang.String&nbsp;course,
+                     int&nbsp;enrollment,
+                     int&nbsp;projectedEnrollment,
+                     int&nbsp;cap)</pre>
 </li>
 </ul>
 </li>
@@ -236,45 +277,86 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a id="projectedEnrollment(int,int)">
+<a id="getCourse()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>projectedEnrollment</h4>
-<pre class="methodSignature">public&nbsp;char&nbsp;projectedEnrollment&#8203;(int&nbsp;projected,
-                                int&nbsp;cap)</pre>
-<div class="block">If the projected enrollment is greater than the cap, then an 
- asterisk is returned. Otherwise, a blank space is returned.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>projected</code> - the number of students projected to enroll</dd>
-<dd><code>cap</code> - the maximum number of students able to enroll</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>char for projected enrollment</dd>
-</dl>
+<h4>getCourse</h4>
+<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getCourse()</pre>
 </li>
 </ul>
-<a id="getMarker()">
+<a id="getEnrollment()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getMarker</h4>
-<pre class="methodSignature">public&nbsp;char&nbsp;getMarker()</pre>
+<h4>getEnrollment</h4>
+<pre class="methodSignature">public&nbsp;int&nbsp;getEnrollment()</pre>
+</li>
+</ul>
+<a id="getProjectedEnrollment()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getProjectedEnrollment</h4>
+<pre class="methodSignature">public&nbsp;int&nbsp;getProjectedEnrollment()</pre>
+</li>
+</ul>
+<a id="getCap()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getCap</h4>
+<pre class="methodSignature">public&nbsp;int&nbsp;getCap()</pre>
+</li>
+</ul>
+<a id="addCourse(edu.odu.cs.cs350.pne.Course)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addCourse</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;addCourse&#8203;(<a href="Course.html" title="class in edu.odu.cs.cs350.pne">Course</a>&nbsp;course)</pre>
+</li>
+</ul>
+<a id="getEnrMarker(int,edu.odu.cs.cs350.pne.Course)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getEnrMarker</h4>
+<pre class="methodSignature">public&nbsp;char&nbsp;getEnrMarker&#8203;(int&nbsp;projected,
+                         <a href="Course.html" title="class in edu.odu.cs.cs350.pne">Course</a>&nbsp;course)</pre>
 </li>
 </ul>
 <a id="toString()">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>toString</h4>
 <pre class="methodSignature">public&nbsp;java.lang.String&nbsp;toString()</pre>
-<div class="block">Prints the headers for the summary projection report</div>
+<div class="block">Prints the summary projection report</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code>toString</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
+</dl>
+</li>
+</ul>
+<a id="getEnrollmentProjection(java.lang.String[])">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getEnrollmentProjection</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;getEnrollmentProjection&#8203;(java.lang.String[]&nbsp;args)
+                             throws java.io.IOException</pre>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.io.IOException</code></dd>
 </dl>
 </li>
 </ul>
