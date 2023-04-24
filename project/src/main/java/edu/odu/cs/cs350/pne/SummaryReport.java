@@ -15,11 +15,11 @@ public class SummaryReport {
     private List<Course> courses;               // have two list bc idk which list we will use
     private List<Section> sections;
 
-    private char marker;        // represents the projected enrollment
+    //private char marker;        // represents the projected enrollment
     private static DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     private String course;
     private int enrollment;
-    private int projectedEnrollmentVal;
+    private int projectedEnrollment;
     private int cap;
     
     public SummaryReport() {
@@ -37,10 +37,10 @@ public class SummaryReport {
         this.sections = new ArrayList<>();
     }
 
-    public SummaryReport(String course, int enrollment, int projectedEnrollmentVal, int cap) {
+    public SummaryReport(String course, int enrollment, int projectedEnrollment, int cap) {
         this.course = course;
         this.enrollment = enrollment;
-        this.projectedEnrollmentVal = projectedEnrollmentVal;
+        this.projectedEnrollment = projectedEnrollment;
         this.cap = cap;
 
         this.courses = new ArrayList<>();
@@ -55,8 +55,8 @@ public class SummaryReport {
         return enrollment;
     }
 
-    public int getProjectedEnrollmentVal() {
-        return projectedEnrollmentVal;
+    public int getProjectedEnrollment() {
+        return projectedEnrollment;
     }
 
     public int getCap() {

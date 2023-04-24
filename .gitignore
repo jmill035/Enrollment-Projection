@@ -47,3 +47,5 @@ local.properties
 *.launch
 *.code-workspace
 .vscode/settings.json
+.gradle/7.6/executionHistory/executionHistory.bin
+.gradle/7.6/executionHistory/executionHistory.lock

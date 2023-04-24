@@ -48,11 +48,11 @@ this function will ignore any dates BEFORE the pre-reg date and any AFTER the ad
 public void supplyCutoff (String args[]) throws Exception
     {
         //grabs the dates.txt file from sample data
-        ClassLoader cl = getClass().getClassLoader();
-        File file1 = new File (cl.getResource("./project/src/test/java/edu/odu/cs/cs350/pne/data/summary/History/202230/dates.txt").getFile());
+        //ClassLoader cl = getClass().getClassLoader();
+        File file = new File("./project/src/test/data/summary/History/202230/dates.txt");
 
         //read the first line of dates.txt as preReg date and second line as addDeadline date
-        BufferedReader reader = new BufferedReader(new FileReader(file1));
+        BufferedReader reader = new BufferedReader(new FileReader(file));
     
         //store first date into preReg and store second date into addDeadline
         String preReg = reader.readLine();
@@ -64,19 +64,25 @@ public void supplyCutoff (String args[]) throws Exception
         LocalDate addDeadlineDate = LocalDate.parse(addDeadline, dateFormat);
 
         //read csv files in the sample data and sort them only by files ending in .csv
-        String csvPath = "./project/src/test/java/edu/odu/cs/cs350/pne/data/summary/History/202230";
+        String csvPath = "src/test/data/summary/History/202230";
         File csvFolder = new File (csvPath);
         File[] fileArray = csvFolder.listFiles();
         List<String> csvFiles= new ArrayList<String>();
-        for (int i = 0; i < fileArray.length; i++)
-        {
-            if (fileArray[i].isFile())
+        // for (int i = 0; i < fileArray.length; i++)
+        // {
+        //     if (fileArray[i].isFile())
+        //     {
+        //         String fileName = fileArray[i].getName();
+        //         if(fileName.endsWith(".csv"))
+        //         {
+        //             csvFiles.add(fileName);
+        //         }
+        //     }
+        // }
+        for (File file1 : fileArray) {
+            if (file1.isFile() && file1.getName().endsWith(".csv")) 
             {
-                String fileName = fileArray[i].getName();
-                if(fileName.endsWith(".csv"))
-                {
-                    csvFiles.add(fileName);
-                }
+                csvFiles.add(file.getName());
             }
         }
         //look at all .csv files and then ignore dates outside of prereg and addDeadline
