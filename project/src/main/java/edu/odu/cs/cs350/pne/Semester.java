@@ -49,7 +49,7 @@ public void supplyCutoff (String args[]) throws Exception
     {
         //grabs the dates.txt file from sample data
         //ClassLoader cl = getClass().getClassLoader();
-        File file = new File("./project/src/test/data/summary/History/202230/dates.txt");
+        File file = new File("src/test/data/summary/History/202230/dates.txt");
 
         //read the first line of dates.txt as preReg date and second line as addDeadline date
         BufferedReader reader = new BufferedReader(new FileReader(file));

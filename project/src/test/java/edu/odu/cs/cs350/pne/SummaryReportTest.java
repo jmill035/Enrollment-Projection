@@ -4,12 +4,16 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.nio.file.Files;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -100,27 +104,6 @@ public class SummaryReportTest {
 
         assertFalse(report.toString().contains("Class"));
     }
- 
-    // @Test
-    // public double getEnrollmentPercentage() {
-    //     SummaryReport semester = new SummaryReport();
-
-        
-    // }
-    
-    // @Test
-    // public void testProjectedEnrollmentLessThanCap() {
-    //     SummaryReport summaryReport = new SummaryReport("CS120G", 46, 104, 120);
-    //     assertEquals(' ', summaryReport.projectedEnrollment(90, 120));
-    //     assertEquals(' ', summaryReport.getMarker());
-    // }
-
-    // @Test
-    // public void testProjectedEnrollmentGreaterThanCap() {
-    //     SummaryReport summaryReport = new SummaryReport("CS120G", 46, 104, 120);
-    //     assertEquals('*', summaryReport.projectedEnrollment(130, 120));
-    //     assertEquals('*', summaryReport.getMarker());
-    // }
 
     // @Test
     // void testGetEnrollmentProjectionWithFileNotFound() {
@@ -140,12 +123,28 @@ public class SummaryReportTest {
     //         });
     // }
 
+    @Test
+    public void testReadFileForSummaryReport() throws Exception
+    {
+         // Check if the dates file was loaded correctly
+         File file = new File("src/test/data/summary/History/202230/dates.txt");
+         BufferedReader reader = new BufferedReader(new FileReader(file));
+         String preReg = reader.readLine();
+         String addDeadline = reader.readLine();
+         reader.close();
+ 
+         // Check that the loaded dates match the expected values
+         assertNotNull(preReg);
+         assertNotNull(addDeadline);
+         assertEquals("2022-10-31", preReg);
+         assertEquals("2023-05-17", addDeadline);
+    }
+    
     // @Test
     // public void testGetEnrollmentProjection() throws IOException {
 
     //     // mock the input file with pre-reg date of 2023-01-01 and add deadline of 2023-01-15
-    //     ClassLoader cl = getClass().getClassLoader();
-    //     File file = new File(cl.getResource("summary-report-dates.txt").getFile());
+    //     File file = new File("summary-report-dates.txt");
     //     String input = "2023-01-01\n2023-01-15\n";
     //     Files.write(file.toPath(), input.getBytes());
 

@@ -108,8 +108,8 @@ public class SummaryReport {
     public void getEnrollmentProjection(String[] args) throws IOException
     {
         // reads the data.txt file and reads line 1 as pre-reg date and reads 2nd line as deadline date
-        ClassLoader cl = getClass().getClassLoader();
-        File file1 = new File (cl.getResource("./project/src/test/java/edu/odu/cs/cs350/pne/data/summary/History/202230/dates.txt").getFile());
+        //ClassLoader cl = getClass().getClassLoader();
+        File file1 = new File ("src/test/data/summary/History/202230/dates.txt");
         BufferedReader reader = new BufferedReader(new FileReader(file1));
         String preReg = reader.readLine();
         String addDeadline = reader.readLine();
@@ -122,7 +122,7 @@ public class SummaryReport {
         
         // creates a course and adds to list with course name, enrollment, project enrollment, and cap
         List<SummaryReport> courseOfferings = new ArrayList<>();
-        courseOfferings.add(new SummaryReport("CS120G", 46, 104, 120));
+        courseOfferings.add(new SummaryReport("CS120G", 46, 66, 120));
 
         // calculates the percentage of the enrollment period that has passed
         int daysPassed = (int) ChronoUnit.DAYS.between(preRegDate, today);

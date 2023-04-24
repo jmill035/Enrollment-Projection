@@ -20,6 +20,9 @@ public class Course {
         this.sections = new ArrayList<>();
     }
 
+    public Course(String string, int i, int j, int k) {
+    }
+
     public String getSubj() {
         return subj;
     }
