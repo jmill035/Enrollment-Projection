@@ -12,7 +12,8 @@ import java.io.IOException;
 
 public class SummaryReport {
  
-    private List<Course> courses;
+    private List<Course> courses;               // have two list bc idk which list we will use
+    private List<Section> sections;
 
     //private char marker;        // represents the projected enrollment
     private static DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -22,7 +23,18 @@ public class SummaryReport {
     private int cap;
     
     public SummaryReport() {
+        this.marker = ' ';
+        this.course = " ";
+        this.enrollment = 0;
+        this.projectedEnrollmentVal = 0;
+        this.cap = 0;
+
         this.courses = new ArrayList<>();
+        this.sections = new ArrayList<>();
+    }
+
+    public SummaryReport(List<Section> sections) {
+        this.sections = new ArrayList<>();
     }
 
     public SummaryReport(String course, int enrollment, int projectedEnrollment, int cap) {
@@ -30,6 +42,9 @@ public class SummaryReport {
         this.enrollment = enrollment;
         this.projectedEnrollment = projectedEnrollment;
         this.cap = cap;
+
+        this.courses = new ArrayList<>();
+        this.sections = new ArrayList<>();
     }
 
     public String getCourse() {
@@ -48,18 +63,60 @@ public class SummaryReport {
         return cap;
     }
     
+    // not needed, but need this for my tests to pass 
+    // i will fix my tests in a bit
     public void addCourse(Course course) {
         this.courses.add(course);
     }
     
+    // fix this 
     public char getEnrMarker(int projected, Course course) {
-
+    
         if(projected > course.calcOverallCap()) {
             return '*';
         }
         else {
             return ' ';
         }
+    }
+
+    // not needed 
+    public char projectedEnrollment(int projected, int cap) {
+        
+        if(projected > cap) {
+            marker = '*';
+        }
+        else {
+            marker = ' ';
+        }
+
+        return marker;
+    }
+
+    public char getMarker() {
+        return marker;
+    }
+
+    public int calcOverallEnrollment() {
+        int overallEnr = 0;
+        for(Section section : sections) {
+            Offering offering = section.getOffering();
+            if(offering != null) {
+                overallEnr += offering.getOverallEnr();
+            }
+        }
+        return overallEnr;
+    }
+
+    public int calcOverallCap() {
+        int overallCap = 0;
+        for(Section section : sections) {
+            Offering offering = section.getOffering();
+            if(offering != null) {
+                overallCap += offering.getOverallCap();
+            }
+        }
+        return overallCap;
     }
 
     /**
@@ -69,18 +126,25 @@ public class SummaryReport {
         StringBuilder body = new StringBuilder();
 
         // first header
-        //body.append().append("\n");
+        //body.append(percent).append("% of enrollment period has elapsed.").append("\n");
 
         body.append(String.format("%-1s %-10s %-15s %-15s %-15s", 
                         " ", "Course", "Enrollment", "Projected", "Cap"));
     
         for(Course course : courses) {
-            // need to implement projected
-            body.append(String.format("%-1s", getEnrMarker(0, course)));
+            body.append(String.format("%-1s", getEnrMarker(projectedEnrollmentVal, course)));
             body.append(String.format("%-10s", course.getCourseName()));
             body.append(String.format("%-15d", course.calcOverallEnrollment()));
-            //body.append(String.format("%-15d", ));
+            body.append(String.format("%-15d", projectedEnrollmentVal));
             body.append(String.format("%-15d", course.calcOverallCap()));
+        }
+
+        for(Section section : sections) {
+            body.append(String.format("%-1s", marker));
+            body.append(String.format("%-10s", course));
+            body.append(String.format("%-15d", calcOverallEnrollment()));
+            body.append(String.format("%-15d", projectedEnrollmentVal));
+            body.append(String.format("%-15d", calcOverallCap()));
         }
 
         return body.toString();
