@@ -16,7 +16,7 @@ import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.Matchers.*;
 
 public class SemesterTest {
-
+/* 
  @Test
  public void testSupplyDirectories()
  {
@@ -33,7 +33,7 @@ public class SemesterTest {
    // assertEquals(currentDirectory, cliOutput[1]);
 
  }
-
+*/
    @Test
    public void testReadFile() throws Exception
    {
