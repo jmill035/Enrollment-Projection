@@ -4,9 +4,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.nio.file.Files;
@@ -164,4 +166,20 @@ public class SummaryReportTest {
     //     // restore standard console output
     //     System.setOut(System.out);
     // }
+    @Test
+    public void testReadFileForSummaryReport() throws Exception
+   {
+        // Check if the dates file was loaded correctly
+        File file = new File("src/test/data/summary/History/202230/dates.txt");
+        BufferedReader reader = new BufferedReader(new FileReader(file));
+        String preReg = reader.readLine();
+        String addDeadline = reader.readLine();
+        reader.close();
+
+        // Check that the loaded dates match the expected values
+        assertNotNull(preReg);
+        assertNotNull(addDeadline);
+        assertEquals("2022-10-31", preReg);
+        assertEquals("2023-05-17", addDeadline);
+   }
 }
