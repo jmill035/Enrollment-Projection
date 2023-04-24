@@ -17,9 +17,9 @@ application {
 }
 
 dependencies {
+    implementation 'com.opencsv:opencsv:5.7.1'
     testImplementation 'org.junit.jupiter:junit-jupiter:5.9.1'
     testImplementation 'org.hamcrest:hamcrest-library:2.2'
-    testImplementation 'com.opencsv:opencsv:5.7.1'
     testImplementation 'org.apache.poi:poi-ooxml-schemas:4.1.2'
     testImplementation 'org.apache.poi:poi-ooxml:4.1.2'
 }
@@ -30,6 +30,7 @@ test {
 }
 
 jar {
+    duplicatesStrategy = 'exclude'
     manifest {
         attributes 'Implementation-Title' : 'Enrollment Projection',
             'Implementaion-Version' : '1.0',

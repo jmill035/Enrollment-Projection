@@ -64,7 +64,7 @@ import com.opencsv.CSVReader;
 
         // enrollmentReport is for testing 
         String enrollmentReport = "/test/data/summary/History/202230/2022-12-20.csv";
-        try (CSVReader reader = new CSVReader(new FileReader(enrollmentReport), numArgs, null, false, false, numArgs, null, null, null, null)) {
+        try (CSVReader reader = new CSVReader(new FileReader(enrollmentReport))) {
             List<String[]> data = new ArrayList<>();
             String[] line;
             while ((line = reader.readNext()) != null) {
