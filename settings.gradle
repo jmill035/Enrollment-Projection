@@ -1,2 +1,14 @@
+pluginManagement {
+    repositories {
+        ivy {
+            url 'https://www.cs.odu.edu/~zeil/ivyrepo'
+        }
+        gradlePluginPortal()
+        mavenCentral()
+    }
+}
+
 rootProject.name = 'Enrollment'
-include "project"
+include 'project'
+include 'report_accumulator'
+
