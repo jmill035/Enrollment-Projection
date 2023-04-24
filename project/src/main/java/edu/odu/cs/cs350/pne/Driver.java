@@ -4,6 +4,7 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 import com.opencsv.CSVReader;
 
 
@@ -57,9 +58,13 @@ import com.opencsv.CSVReader;
 
         /*
          * Convert CSV into List object
+         * Output is a usable ArrayList for a given CSV. 
+         * parameter name: data
          */
+
+        // enrollmentReport is for testing 
         String enrollmentReport = "/test/data/summary/History/202230/2022-12-20.csv";
-        try (CSVReader reader = new CSVReader(new FileReader(enrollmentReport))) {
+        try (CSVReader reader = new CSVReader(new FileReader(enrollmentReport), numArgs, null, false, false, numArgs, null, null, null, null)) {
             List<String[]> data = new ArrayList<>();
             String[] line;
             while ((line = reader.readNext()) != null) {
