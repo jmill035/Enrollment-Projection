@@ -14,7 +14,7 @@ public class SummaryReport {
  
     private List<Course> courses;
 
-    private char marker;        // represents the projected enrollment
+    //private char marker;        // represents the projected enrollment
     private static DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     private String course;
     private int enrollment;
