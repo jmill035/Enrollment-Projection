@@ -24,7 +24,7 @@ jobs:
         ../gradlew build
         ../gradlew test
     - name: Reports
-      run: ./gradlew reports
+      run: ../gradlew reports
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@v4.2.5
       with:
