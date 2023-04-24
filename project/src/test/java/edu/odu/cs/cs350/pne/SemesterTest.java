@@ -17,16 +17,22 @@ import static org.hamcrest.Matchers.*;
 
 public class SemesterTest {
 
-//  @Test
-//  public void testSupplyDirectories(){
+ @Test
+ public void testSupplyDirectories()
+ {
 
-//     Semester semester = new Semester();
-//     String pastDirectory = "./project/src/test/java/edu/odu/cs/cs350/pne/data/summary/History/202230/2022*" ;
-//     String currentDirectory = "./project/src/test/java/edu/odu/cs/cs350/pne/data/summary/History/202230/2023*" ; 
+    Semester semester = new Semester();
+    String pastDirectory = "src/test/data/summary/History/202230/2022*" ;
+    String currentDirectory = "src/test/data/summary/History/202230/2023*" ; 
+    //assertTrue(semester.supplyDirectories());
 
-//     assertTrue(semester.supplyDirectories(pastDirectory, currentDirectory));
+    assertTrue(semester.supplyDirectories(pastDirectory, currentDirectory));
 
-//  }
+   // String[] cliOutput = .getOutput();
+   // assertEquals(pastDirectory, cliOutput[0]);
+   // assertEquals(currentDirectory, cliOutput[1]);
+
+ }
 
    @Test
    public void testReadFile() throws Exception
