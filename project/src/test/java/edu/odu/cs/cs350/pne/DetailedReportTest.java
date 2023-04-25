@@ -8,13 +8,13 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class IOReaderTest {
-    private static IOReader reader;
+public class DetailedReportTest {
+    private static DetailedReport reader;
     private static String directoryPath;
 
     @BeforeAll
     static void setup(){
-        reader = new IOReader();
+        reader = new DetailedReport();
         directoryPath = "./project/src/test/java/edu/odu/cs/cs350/pne/data/summary";
     }
 
