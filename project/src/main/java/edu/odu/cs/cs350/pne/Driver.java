@@ -25,7 +25,7 @@ import com.opencsv.CSVReader;
  * 
  */
  public class Driver {
-    private static List<String[]> data;
+    static List<String[]> data;
     public static List<String[]> getData() {
         return data;
     }
