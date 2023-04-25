@@ -23,4 +23,20 @@ public class IOReaderTest {
         String path = directoryPath + "/History/202230/invalid_directory";
         Assertions.assertThrows(IOException.class, () -> reader.calculateAverages(path));
     }
+
+    @Test
+    void testCalculateAverages() throws IOException { 
+        String path = directoryPath + "/History/202230";
+        String outputFilePath = "./test_output.xlsx";
+        reader.calculateAverages(path, outputFilePath);
+
+        Assertions.assertTrue(Files.exists(Paths.get(outputFilePath)));
+
+        String expectedOutput = "Current Enrollment\t40.0\n" + "History\t55.0\n";
+        String actualOutput = new String(Files.readAllBytes(Paths.get(outputFilePath)));
+        Assertions.assertEquals(expectedOutput, actualOutput);
+
+        File outputFile = new File(outputFilePath);
+        outputFile.delete();
+    }
 }    
