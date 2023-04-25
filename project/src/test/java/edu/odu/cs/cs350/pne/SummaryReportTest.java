@@ -5,20 +5,17 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.BufferedReader;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
-import java.io.PrintStream;
-import java.nio.file.Files;
-import java.time.format.DateTimeParseException;
+
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
 
 public class SummaryReportTest {
+
     @Test
     public void testDefaultConstructor() {
         //SummaryReport summaryReport = new SummaryReport();
@@ -102,43 +99,36 @@ public class SummaryReportTest {
 
         assertFalse(report.toString().contains("Class"));
     }
- 
-    // @Test
-    // public double getEnrollmentPercentage() {
-    //     SummaryReport semester = new SummaryReport();
-
-        
-    // }
     
-    // @Test
-    // public void testProjectedEnrollmentLessThanCap() {
-    //     SummaryReport summaryReport = new SummaryReport("CS120G", 46, 104, 120);
-    //     assertEquals(' ', summaryReport.projectedEnrollment(90, 120));
-    //     assertEquals(' ', summaryReport.getMarker());
-    // }
+    @Test
+    public void testGetProjectedEnrollmentLessThanCap() {
+        SummaryReport summaryReport = new SummaryReport("CS120G", 46, 104, 120);
+        assertEquals(' ', summaryReport.projectedEnrollment(90, 120));
+        assertEquals(' ', summaryReport.getMarker());
+    }
 
-    // @Test
-    // public void testProjectedEnrollmentGreaterThanCap() {
-    //     SummaryReport summaryReport = new SummaryReport("CS120G", 46, 104, 120);
-    //     assertEquals('*', summaryReport.projectedEnrollment(130, 120));
-    //     assertEquals('*', summaryReport.getMarker());
-    // }
+    @Test
+    public void testGetProjectedEnrollmentGreaterThanCap() {
+        SummaryReport summaryReport = new SummaryReport("CS120G", 46, 104, 120);
+        assertEquals('*', summaryReport.projectedEnrollment(130, 120));
+        assertEquals('*', summaryReport.getMarker());
+    }
 
-    // @Test
-    // void testGetEnrollmentProjectionWithFileNotFound() {
-    //     SummaryReport report = new SummaryReport();
+    @Test
+    void testGetEnrollmentProjectionWithFileNotFound() {
+        SummaryReport report = new SummaryReport();
     
-    //     assertThrows(FileNotFoundException.class, () -> {
-    //         report.getEnrollmentProjection(new String[] {"nonexistent.txt"});
-    //     });
-    // }
+        assertThrows(FileNotFoundException.class, () -> {
+            report.getEnrollmentProjection(new String[] {"nonexistent.txt"});
+        });
+    }
 
     // @Test
     // void testGetEnrollmentProjectionWithInvalidDateFormat() throws IOException {
     //     SummaryReport report = new SummaryReport();
 
     //     assertThrows(DateTimeParseException.class, () -> {
-    //         report.getEnrollmentProjection(new String[] {"./data/summary/History/202230/invalid_dates.txt"});
+    //         report.getEnrollmentProjection(new String[] {"src/test/java/edu/odu/cs/cs350/pne/data/summary/History/202230/invalid_dates.txt"});
     //         });
     // }
 
@@ -146,8 +136,7 @@ public class SummaryReportTest {
     // public void testGetEnrollmentProjection() throws IOException {
 
     //     // mock the input file with pre-reg date of 2023-01-01 and add deadline of 2023-01-15
-    //     ClassLoader cl = getClass().getClassLoader();
-    //     File file = new File(cl.getResource("summary-report-dates.txt").getFile());
+    //     File file = new File("src/test/java/edu/odu/cs/cs350/pne/data/summary/History/202230/dates.txt");
     //     String input = "2023-01-01\n2023-01-15\n";
     //     Files.write(file.toPath(), input.getBytes());
 
@@ -166,6 +155,7 @@ public class SummaryReportTest {
     //     // restore standard console output
     //     System.setOut(System.out);
     // }
+
     @Test
     public void testReadFileForSummaryReport() throws Exception
    {
