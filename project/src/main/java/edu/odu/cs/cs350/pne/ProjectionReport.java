@@ -6,7 +6,12 @@ import java.util.List;
 public class ProjectionReport {
 
     private List<Offering> offerings;
+    private List<Integer> enrollmentData;
 
+    public void DetailedProjectionReport(List<Offering> offerings, List<Integer> enrollmentData) {
+        this.offerings = offerings;
+        this.enrollmentData = enrollmentData;
+    }
     public ProjectionReport(List<Offering> offerings) {
         this.offerings = offerings;
     }
@@ -18,26 +23,6 @@ public class ProjectionReport {
         }
         return overallCap;
     }
-}
-
-public class ProjectionReport {
-
-    private List<Offering> offerings;
-    private List<Integer> enrollmentData;
-
-    public DetailedProjectionReport(List<Offering> offerings, List<Integer> enrollmentData) {
-        this.offerings = offerings;
-        this.enrollmentData = enrollmentData;
-    }
-
-    public int calculateOverallCap() {
-        int overallCap = 0;
-        for (Offering offering : offerings) {
-            overallCap += offering.getOverallCap();
-        }
-        return overallCap;
-    }
-
     public void generateEnrollmentGraph() {
         System.out.println("Enrollment Graph for this Semester:");
         for (int i = 0; i < enrollmentData.size(); i++) {
