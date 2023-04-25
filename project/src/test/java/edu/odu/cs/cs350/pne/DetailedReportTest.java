@@ -1,42 +1,46 @@
 package edu.odu.cs.cs350.pne;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+
+import org.junit.jupiter.api.Test;
 
 public class DetailedReportTest {
-    private static DetailedReport reader;
-    private static String directoryPath;
-
-    @BeforeAll
-    static void setup(){
-        reader = new DetailedReport();
-        directoryPath = "./project/src/test/java/edu/odu/cs/cs350/pne/data/summary";
-    }
 
     @Test
-    void testFileNotFound(){
-        String path = directoryPath + "/History/202230/invalid_directory";
-        Assertions.assertThrows(IOException.class, () -> reader.calculateAverages(path));
-    }
+    public void testWriteExcel() {
+        // Prepare input arguments
+        String[] args = {};
 
-    @Test
-    void testCalculateAverages() throws IOException { 
-        String path = directoryPath + "/History/202230";
-        String outputFilePath = "./test_output.xlsx";
-        reader.calculateAverages(path, outputFilePath);
+        // Run the method under test
+        DetailedReport detailedReport = new DetailedReport();
+        detailedReport.writeExcel(args);
 
-        Assertions.assertTrue(Files.exists(Paths.get(outputFilePath)));
+        // Check that the output file was created
+        File outputFile = new File("output.xlsx");
+        assertTrue(outputFile.exists());
 
-        String expectedOutput = "Current Enrollment\t40.0\n" + "History\t55.0\n";
-        String actualOutput = new String(Files.readAllBytes(Paths.get(outputFilePath)));
-        Assertions.assertEquals(expectedOutput, actualOutput);
-
-        File outputFile = new File(outputFilePath);
+        // Clean up the output file
         outputFile.delete();
     }
-}    
+
+    @Test
+    public void testWriteExcelWithInvalidDirectory() {
+        // Prepare input arguments with an invalid directory path
+        String[] args = {"./invalid/path"};
+
+        // Run the method under test
+        DetailedReport detailedReport = new DetailedReport();
+        detailedReport.writeExcel(args);
+
+        // Check that the output file was not created
+        File outputFile = new File("output.xlsx");
+        assertFalse(outputFile.exists());
+    }
+
+    // Add more test cases as needed for different scenarios and edge cases
+}
